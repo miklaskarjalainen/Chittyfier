@@ -1,8 +1,21 @@
 use crate::value::Value;
 use std::collections::{VecDeque};
 
-const SYMBOLS: [char; 7] = ['{', '}', ',', ':', ';', '[', ']'];
-const OPERATORS: [&'static str; 19] = ["++", "+", "-", "/", "*", "%", "<", ">", "<=", ">=", "(", ")", "=", "!", "|", "==", "!=", "||" , "&&"];
+const SYMBOLS: [char; 10] = ['{', '}', ',', ':', ';', '[', ']', '(', ')', '?'];
+const OPERATORS: [&'static str; 34] = [
+    "++", "--", 
+    "+=", "-=", "+" , "-",
+    "/=", "*=", "%=", "/", "*", "%",
+    
+    // Bitwise
+    "<<", ">>", "<<=", ">>=",
+    "~=", "^=", "~", "^",
+    "|=", "&=", "|", "&",
+
+    // Comparision
+    "<=", ">=", "<", ">",
+    "!=", "||", "&&", "=", "!", "==",
+];
 const KEYWORDS: [&'static str; 14] = ["let", "return", "fn", "if", "else", "while", "import", "break", "continue", "#include", "#define", "float", "int", "char"];
 
 #[derive(Debug, Clone, PartialEq)]
