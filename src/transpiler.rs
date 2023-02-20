@@ -112,11 +112,6 @@ pub fn transpile(tokens: &VecDeque<LexerToken>) {
         if let LexerTokenType::Value(value) = &tk.token {
             transpiler.add_word(&value.to_string());
         }
-        /*
-        else {
-            panic!("Unhandled token type! {:#?}", tk);
-        }
-        */
     }
     
     transpiler.output("output.c");
