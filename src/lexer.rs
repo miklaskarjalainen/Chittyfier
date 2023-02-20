@@ -12,7 +12,6 @@ pub enum LexerTokenType {
     Symbol(char),
     Operator(String),
     Identifier(String),
-    NewLine,
     Eof
 }
 

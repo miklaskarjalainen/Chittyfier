@@ -119,5 +119,5 @@ pub fn transpile(tokens: &VecDeque<LexerToken>) {
         */
     }
     
-    transpiler.output("foo.txt");
+    transpiler.output("output.c");
 }
