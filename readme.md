@@ -1,5 +1,5 @@
 # (C)hittyfier
-Very simple c program which takes in a (correctly) written C program and Shittyfies the source code.
+Very simple rust program which takes in a (correctly) written C program and Shittyfies the source code.
 
 # Example
 ~~~c
