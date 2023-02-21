@@ -66,18 +66,24 @@ pub fn transpile(tokens: &VecDeque<LexerToken>) {
         if let LexerTokenType::Keyword(kw) = &tk.token {
             if kw == "#include" {
                 let mut include = String::from("#include ");
-
-                iter.next().unwrap();
+                
                 let n = iter.next().unwrap();
-                iter.next().unwrap();
-
-                include.push('<');
-                if let LexerTokenType::Identifier(name) = &n.token {
-                    include += name;
+                // "" includes
+                if let LexerTokenType::Value(value) = &n.token {
+                    include += &value.to_string();
                 }
-                include.push('>');
-                include.push('\n');
+                // <> includes
+                else {
+                    let n = iter.next().unwrap();
+                    iter.next().unwrap();
 
+                    include.push('<');
+                    if let LexerTokenType::Identifier(name) = &n.token {
+                        include += name;
+                    }
+                    include.push('>');
+                }
+                include.push('\n');
                 transpiler.write_string(&include);
                 
             } 
